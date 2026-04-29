@@ -3,7 +3,7 @@ services:
   
   web:
     build: .
-    container_name: django__app
+    container_name: django_app
     command: sh -c "while ! nc -z db 5432; do sleep 1; done; python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
@@ -22,12 +22,12 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB : devops__db
-      POSTGRES_USER : postgress
-      POSTGRES_PASSWORD : postgress
+      POSTGRES_DB : devops_db
+      POSTGRES_USER : postgres
+      POSTGRES_PASSWORD : postgres
     volumes:
-      - postgres__data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
 
 
 volumes:
-  postgres__data:
+  postgres_data:
